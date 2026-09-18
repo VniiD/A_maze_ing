@@ -751,7 +751,8 @@ Ferramentas de IA (assistente conversacional) foram utilizadas para:
 
 ## License
 
-Este projeto (incluindo o módulo reutilizável `mazegen`) é distribuído sob a
-licença **LGPD** — ver [`LICENSE.md`](./LICENSE.md). A licença permite
-explicitamente o uso, cópia, modificação e distribuição deste gerador de
-labirintos por projetos futuros que venham a reutilizá-lo, dando credito aos criadores.
+Este projeto (incluindo o módulo reutilizável `mazegen`) é distribuído sob uma
+licença **Proprietária e em conformidade com a LGPD** — veja o arquivo [`LICENSE`](./LICENSE).
+A licença permite o uso, cópia, modificação e distribuição deste gerador de labirintos,
+desde que seja mantida a obrigatoriedade de dar crédito aos criadores originais e respeitadas
+as diretrizes da LGPD (Lei nº 13.709/2018).
