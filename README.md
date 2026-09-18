@@ -102,25 +102,26 @@ flowchart TB
         FALLBACK["FallbackAlgorithm / FallbackRenderer"]
     end
 
-    subgraph MAZEGEN["mazegen/ (pacote reutilizável, instalável via pip)"]
-        CONFIG["config.py\nMazeConfig"]
-        MAZE["maze.py\nMaze"]
-        CELL["cell.py\nCell"]
-        WALLS["walls.py\nWall (IntFlag)"]
-        SOLVER["solver.py\nsolve_bfs()"]
-        GEN["generator.py\nMazeGenerator"]
-        EXC["exceptions.py\nMazeError / ConfigError / ..."]
-        subgraph ALGOS["algorithms/"]
-            BASE_A["base.py\nMazeAlgorithm (ABC)"]
-            BT["backtracker.py\nRecursiveBacktracker"]
-            PR["prim.py\nPrimAlgorithm"]
-            KR["kruskal.py\nKruskalAlgorithm + DisjointSet"]
-        end
+    subgraph MAZEGEN["mazegen (pacote principal)"]
+        CONFIG["config.py<br/>MazeConfig"]
+        MAZE["maze.py<br/>Maze"]
+        CELL["cell.py<br/>Cell"]
+        WALLS["walls.py<br/>Wall (IntFlag)"]
+        SOLVER["solver.py<br/>solve_bfs()"]
+        GEN["generator.py<br/>MazeGenerator"]
+        EXC["exceptions.py<br/>MazeError / ConfigError"]
     end
 
-    subgraph RENDERERS["renderers/ (apresentação)"]
-        BASE_R["base.py\nBaseRenderer (ABC)"]
-        ASCII["ascii_renderer.py\nASCIIRenderer"]
+    subgraph ALGOS["mazegen / algorithms"]
+        BASE_A["base.py<br/>MazeAlgorithm (ABC)"]
+        BT["backtracker.py<br/>RecursiveBacktracker"]
+        PR["prim.py<br/>PrimAlgorithm"]
+        KR["kruskal.py<br/>KruskalAlgorithm + DisjointSet"]
+    end
+
+    subgraph RENDERERS["renderers (apresentação)"]
+        BASE_R["base.py<br/>BaseRenderer (ABC)"]
+        ASCII["ascii_renderer.py<br/>ASCIIRenderer"]
     end
 
     MAIN --> CONFIG
@@ -132,7 +133,7 @@ flowchart TB
     SAVE --> MAZE
     GEN --> MAZE
     GEN --> SOLVER
-    GEN --> ALGOS
+    GEN --> BASE_A
     MAZE --> CELL
     CELL --> WALLS
     SOLVER --> MAZE
@@ -142,7 +143,6 @@ flowchart TB
     ASCII --> BASE_R
     ASCII --> MAZE
     ASCII --> WALLS
-```
 
 ### Diagrama de classes
 
